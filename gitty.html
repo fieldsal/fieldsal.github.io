@@ -17,6 +17,8 @@
 					vm.data=true;
 					vm.name=res.data.name;
 					vm.location=res.data.location;
+					vm.following=res.data.following;
+					vm.followers=res.data.followers;
 					vm.loading=false;
 				})
 				}
@@ -29,6 +31,6 @@
 	<input type="text" ng-model="user.name" name="enter">
 	<button ng-click="vm.fetchData(user)">Go!</button>
 		<h4 ng-if="vm.loading ===true">Loading...</h4>
-	<h3 ng-hide="vm.data===false">{{vm.name}} --- {{vm.location}}</h3>
+	<h3 ng-hide="vm.data===false">Name:{{vm.name}} --- Location:{{vm.location}} --- Following{{vm.following}}--- {{vm.followers}}</h3>
 </body>
 </html>
