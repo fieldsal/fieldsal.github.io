@@ -2,7 +2,7 @@
 <html ng-app='app'>
 <head>
 	<meta charset="utf-8">
-	<meta https-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title></title>
 	<link rel="stylesheet" href="">
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
@@ -18,15 +18,15 @@
 					vm.name=res.data.name;
 					vm.location=res.data.location;
 					vm.loading=false;
-			})
-		}
+				})
+			}
 		}
 	</script>
 </head>
 <body ng-controller='MainCtrl as vm'>
 	<label for = "enter">Enter a username</label>
 	<input type="text" ng-model="user.name" name="enter">
-	<button ng-click="vm.fetchData(user)">Go</button>
+	<button ng-click="vm.fetchData(user)">Go!</button>
 		<h4 ng-if="vm.loading ===true">Loading...</h4>
 	<h3 ng-hide="vm.data===false">{{vm.name}} --- {{vm.location}}</h3>
 </body>
