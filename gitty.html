@@ -30,8 +30,9 @@
 	</script>
 </head>
 
-<center>
+
 <body  ng-controller='MainCtrl as vm'>
+<center>
 	<label for = "enter">Enter a username</label>
 	<input type="text" ng-model="user.name" name="enter">
 	<button ng-click="vm.fetchData(user)">Go!</button>
@@ -43,8 +44,8 @@
 	<h3 ng-hide="vm.data===false"> Public Repos: {{vm.public_repos}}</h3>
 	<h3 ng-hide="vm.data===false"> Id: {{vm.id}}</h3>
 	<h3 ng-hide="vm.data===false"> Login: {{vm.login}}</h3>
-
-</body>
 </center>
+</body>
+
 
 </html>
