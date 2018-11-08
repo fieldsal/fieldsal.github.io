@@ -30,8 +30,11 @@
 	</script>
 </head>
 <style>
+div{
+	background-color : white;
+}
 body {
-	color: #c8c8c8;
+	
     background-image: url("Images/gitty.png");
 }
 h4{
@@ -47,7 +50,7 @@ h3{
 
 
 <body  ng-controller='MainCtrl as vm'>
-<div class="w3-container w3-teal">
+<div>
 <center>
 	<label for = "enter">Enter a username</label>
 	<input type="text" ng-model="user.name" name="enter">
