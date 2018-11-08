@@ -36,6 +36,11 @@ div{
 	margin-left:26%;
 	margin-right:26%;
 }
+img{
+	width:200px;
+	height:200px;
+	border-radius: 120px;
+}
 body {
 	
     background-image: url("Images/gitty.png");
@@ -60,7 +65,7 @@ h3{
 	<button ng-click="vm.fetchData(user)">Go!</button>
 		<h4 ng-if="vm.loading ===true">Loading...</h4>
 	<h3 ng-hide="vm.data===false">Name:{{vm.name}}</h3>
-	<img ng-hide="vm.data===false"src = {{vm.photo}}style="width:200px;height:200px;border-radius: 120px;">
+	<img ng-hide="vm.data===false"src = {{vm.photo}}>
 	<h3 ng-hide="vm.data===false">Location:{{vm.location}}</h3>
 	<h3 ng-hide="vm.data===false">Following: {{vm.following}}</h3>
 	<h3 ng-hide="vm.data===false"> Followers: {{vm.followers}}</h3>
