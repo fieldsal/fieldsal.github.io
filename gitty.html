@@ -16,6 +16,7 @@
 				$http.get('https://api.github.com/users/' + user.name).then(function(res){
 					vm.data=true;
 					vm.name=res.data.name;
+					vm.photo=res.data.avatar_url;
 					vm.location=res.data.location;
 					vm.following=res.data.following;
 					vm.followers=res.data.followers;
@@ -59,6 +60,7 @@ h3{
 	<button ng-click="vm.fetchData(user)">Go!</button>
 		<h4 ng-if="vm.loading ===true">Loading...</h4>
 	<h3 ng-hide="vm.data===false">Name:{{vm.name}}</h3>
+	<img ng-hide="vm.data===false"src = {{vm.photo}}>
 	<h3 ng-hide="vm.data===false">Location:{{vm.location}}</h3>
 	<h3 ng-hide="vm.data===false">Following: {{vm.following}}</h3>
 	<h3 ng-hide="vm.data===false"> Followers: {{vm.followers}}</h3>
