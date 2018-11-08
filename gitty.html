@@ -29,13 +29,12 @@
 		
 	</script>
 </head>
-<center>
+
 <style>
-body{background:"Images/Header.png"}
 h3{
 	font-family:"Courier New", Courier, monospace;
 }
-<style>
+</style>
 <body  ng-controller='MainCtrl as vm'>
 	<label for = "enter">Enter a username</label>
 	<input type="text" ng-model="user.name" name="enter">
@@ -50,5 +49,5 @@ h3{
 	<h3 ng-hide="vm.data===false"> Login: {{vm.login}}</h3>
 
 </body>
-</center>
+
 </html>
