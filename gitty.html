@@ -60,7 +60,7 @@ h3{
 	<button ng-click="vm.fetchData(user)">Go!</button>
 		<h4 ng-if="vm.loading ===true">Loading...</h4>
 	<h3 ng-hide="vm.data===false">Name:{{vm.name}}</h3>
-	<img ng-hide="vm.data===false"src = {{vm.photo}}width = 20%>
+	<img ng-hide="vm.data===false"src = {{vm.photo}}style=border-radius: 120px;>
 	<h3 ng-hide="vm.data===false">Location:{{vm.location}}</h3>
 	<h3 ng-hide="vm.data===false">Following: {{vm.following}}</h3>
 	<h3 ng-hide="vm.data===false"> Followers: {{vm.followers}}</h3>
