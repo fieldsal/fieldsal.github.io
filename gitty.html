@@ -23,7 +23,6 @@
 					vm.public_repos=res.data.public_repos;
 					vm.id=res.data.id;
 					vm.login=res.data.login;
-					vm.company=res.data.compay;
 					vm.loading=false;
 				})
 				}
@@ -73,7 +72,6 @@ h3{
 	<h3 ng-hide="vm.data===false"> Followers: {{vm.followers}}</h3>
 	<h3 ng-hide="vm.data===false"> Public Repos: {{vm.public_repos}}</h3>
 	<h3 ng-hide="vm.data===false"> Id: {{vm.id}}</h3>
-	<h3 ng-hide="vm.data===false"> Company: {{vm.company}}</h3>
 	<h3 ng-hide="vm.data===false"> Login: {{vm.login}}</h3>
 </center>
 </div>
