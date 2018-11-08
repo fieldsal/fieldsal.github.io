@@ -16,15 +16,18 @@
 				$http.get('https://api.github.com/users/' + user.name).then(function(res){
 					vm.data=true;
 					vm.name=res.data.name;
+					vm.type=res.data.type;
 					vm.photo=res.data.avatar_url;
+					vm.bio=res.data.bio;
 					vm.location=res.data.location;
 					vm.following=res.data.following;
-					vm.following=res.data.following_url;
 					vm.followers=res.data.followers;
 					vm.public_repos=res.data.public_repos;
 					vm.email=res.data.email;
 					vm.id=res.data.id;
+					vm.hireable=res.data.hireable;
 					vm.login=res.data.login;
+					vm.site_admin=res.data.site_admin;
 					vm.loading=false;
 					
 					
@@ -70,14 +73,17 @@ h3{
 	<button ng-click="vm.fetchData(user)">Go!</button>
 		<h4 ng-if="vm.loading ===true">Loading...</h4>
 	<h3 ng-hide="vm.data===false">Name:{{vm.name}}</h3>
+	<h3 ng-hide="vm.data===false">Account Type:{{vm.type}}</h3>
+	<h3 ng-hide="vm.data===false"> Id: {{vm.id}}</h3>
 	<img ng-hide="vm.data===false" ng-src = {{vm.photo}}>
+	<h3 ng-hide="vm.data===false">{{vm.bio}}</h3>
 	<h3 ng-hide="vm.data===false">Location:{{vm.location}}</h3>
 	<h3 ng-hide="vm.data===false">Following: {{vm.following}}</h3>
-	<h3 ng-hide="vm.data===false"> following_url: {{vm.following_url}}</h3>
 	<h3 ng-hide="vm.data===false"> Followers: {{vm.followers}}</h3>
 	<h3 ng-hide="vm.data===false"> Public Repos: {{vm.public_repos}}</h3>
 	<h3 ng-hide="vm.data===false"> Email: {{vm.email}}</h3>
-	<h3 ng-hide="vm.data===false"> Id: {{vm.id}}</h3>
+	<h3 ng-hide="vm.data===false"> Hireable?: {{vm.hireable}}</h3>
+	<h3 ng-hide="vm.data===false"> Site Admin?: {{vm.site_admin}}</h3>
 	<h3 ng-hide="vm.data===false"> Login: {{vm.login}}</h3>
 </center>
 </div>
