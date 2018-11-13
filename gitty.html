@@ -8,12 +8,15 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
 	<script>
 		var app= angular.module('app', []);
+		console.log(followers);
 		app.controller('MainCtrl', function($http){
 			var vm = this;
 			vm.data=false;
 			vm.fetchData = function(user){
 				vm.loading = true;
-				$http.get('https://api.github.com/users/' + user.name).then(function(res){
+				$http.get('https://api.github.com/users/' + user.name/followers).then(function(res){
+					
+					vm.json=followers.json;
 					vm.data=true;
 					vm.name=res.data.name;
 					vm.type=res.data.type;
@@ -28,6 +31,7 @@
 					vm.hireable=res.data.hireable;
 					vm.login=res.data.login;
 					vm.site_admin=res.data.site_admin;
+					vm.followers_url=res.data.followers_url;
 					vm.loading=false;
 					
 					
