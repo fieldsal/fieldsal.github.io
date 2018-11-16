@@ -14,7 +14,7 @@
 			vm.data=false;
 			vm.fetchData = function(user){
 				vm.loading = true;
-				$http.get('https://api.github.com/users/' + user.name/followers).then(function(res){
+				$http.get('https://api.github.com/users/' + user.name).then(function(res){
 				
 					vm.data=true;
 					vm.name=res.data.name;
