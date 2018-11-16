@@ -25,7 +25,6 @@
 					vm.photo=res.data.avatar_url;
 					vm.location=res.data.location;
 					vm.following=res.data.following;
-					vm.following=res.data.following_url;
 					vm.followers=res.data.followers;
 					vm.public_repos=res.data.public_repos;
 					vm.email=res.data.email;
@@ -82,7 +81,6 @@ h3{
 	<img ng-hide="vm.data===false" ng-src = {{vm.photo}}>
 	<h3 ng-hide="vm.data===false">Location:{{vm.location}}</h3>
 	<h3 ng-hide="vm.data===false">Following: {{vm.following}}</h3>
-	<h3 ng-hide="vm.data===false"> following_url: {{vm.following_url}}</h3>
 	<h3 ng-hide="vm.data===false"> Followers: {{vm.followers}}</h3>
 	<h3 ng-hide="vm.data===false"> Public Repos: {{vm.public_repos}}</h3>
 	<h3 ng-hide="vm.data===false"> Email: {{vm.email}}</h3>
