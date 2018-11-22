@@ -28,13 +28,22 @@
 					vm.email=res.data.email;
 					vm.id=res.data.id;
 					vm.login=res.data.login;
-					vm.loading=false;
 					
+					vm.loading=false;
+						
 					
 				})
 				}
 			})
 		
+	</script>	
+	<script>
+	function getMyRepos(user) {
+        
+            user.repos = data;
+        }
+   
+
 	</script>
 </head>
 
@@ -91,7 +100,7 @@ h3{
 	<h3 ng-hide="vm.data===false"> Email: {{vm.email}}</h3>
 	<h3 ng-hide="vm.data===false"> Id: {{vm.id}}</h3>
 	<h3 ng-hide="vm.data===false"> Login: {{vm.login}}</h3>
-	<button ng-click="showMyRepos()">Repos</button>
+	<li><a class="nav-link" src="/pie-chart.js"> My Repos</a><li>
 	<br>
 </center>
 </div>
