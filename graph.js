@@ -1,4 +1,4 @@
-<script>
+!function(){
 
 var salesData=[
 	{label:"https://api.github.com/users/fieldsal/repos/"+name, value: "https://api.github.com/repos/fieldsal/"+name +"/commits" ,  color:"#3366CC"},
@@ -26,4 +26,4 @@ function randomData(){
 		return {label:d.label, value:d.value, color:d.color};});
 }
 
-</script>
+}
