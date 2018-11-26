@@ -38,8 +38,9 @@
 					console.log(repos);
 					var commits = [];
 					var returnData = [];
+					var repoName;
 					for(var i=0;i<repos.length;i++){
-						commitsData = repos[i].commits_url.substring(0,repos[i].commits_url.length-6);
+						commitsData = "https://api.github.com/repos/" + user.name+"/" + repos[i];
 						commits = jsonParse(commitsData);
 						returnData.push({"repo_name":repos[i].name, "commits":commits.length});
 					}
