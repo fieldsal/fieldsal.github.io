@@ -35,7 +35,7 @@
 				})
 				vm.getRepos = function(user){
 					var repos = "https://api.github.com/users/" + user.name + "/repos";
-					consol.log(repos);
+					console.log(repos);
 					var commits = [];
 					var returnData = [];
 					for(var i=0;i<repos.length;i++){
@@ -43,7 +43,7 @@
 						commits = jsonParse(commitsData);
 						returnData.push({"repo_name":repos[i].name, "commits":commits.length});
 					}
-					consol.log(returnData);
+					console.log(returnData);
 					return returnData;
 				} 
 				}
