@@ -41,10 +41,11 @@
 					var repoName;
 					for(var i=0;i<repos.length;i++){
 						commitsData = "https://api.github.com/repos/" + user.name+"/" + repos[i];
-						commits = JSON.parse(commitsData);
-						returnData.push({"repo_name":repos[i].name, "commits":commits.length});
+						console.log(commitsData);
+						//commits = JSON.parse(commitsData);
+						//returnData.push({"repo_name":repos[i].name, "commits":commits.length});
 					}
-					return returnData;
+					//return returnData;
 				} 
 				}
 			})
