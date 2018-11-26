@@ -1,29 +1,60 @@
-!function(){
+function getRepos(input){
+	var repos = "https://api.github.com/users/" + input + "/repos";
+	consol.log(repos);
+	var commits = [];
+	var returnData = [];
+	for(var i=0;i<repos.length;i++){
+		commitsData = repos[i].commits_url.substring(0,repos[i].commits_url.length-6);
+		commits = jsonParse(commitsData);
+		returnData.push({"repo_name":repos[i].name, "commits":commits.length});
+	}
+	consol.log(returnData);
+	return returnData;
+}
 
-var salesData=[
-	{label:"https://api.github.com/users/fieldsal/repos/"+name, value: "https://api.github.com/repos/fieldsal/"+name +"/commits" ,  color:"#3366CC"},
-	{label:"https://api.github.com/users/fieldsal/repos/"+name, value: "https://api.github.com/repos/fieldsal/"+name +"/commits" , color:"#DC3912"},
-	{label:"https://api.github.com/users/fieldsal/repos/"+name, value: "https://api.github.com/repos/fieldsal/"+name +"/commits" , color:"#FF9900"},
-	{label:"https://api.github.com/users/fieldsal/repos/"+name, value: "https://api.github.com/repos/fieldsal/"+name +"/commits" , color:"#109618"},
-	{label:"https://api.github.com/users/fieldsal/repos/"+name, value: "https://api.github.com/repos/fieldsal/"+name +"/commits" , color:"#990099"}
-];
-
-var svg = d3.select("body").append("svg").attr("width", 700).attr("height", 400);
-
-svg.append("g").attr("id","salespie");
-svg.append("g").attr("id","quotespie");
+function plot(data){
+	var names=[];
+	var	commits=[];
+	console.log(data[0].repo_name);
+	for(var i = 0 ; i<data.length ; i ++)
+	{
+		names[i]=data[i].repo_name;
+		commits[i]=data[i].commits;
+	}
 	
-gradPie.draw("salespie", randomData(), 200, 200, 160);
-gradPie.draw("quotespie", randomData(), 500, 200, 100);
-
-function changeData(){
-	gradPie.transition("salespie", randomData(), 160);
-	gradPie.transition("quotespie", randomData(), 100);
-}
-
-function randomData(){
-	return salesData.map(function(d){ 
-		return {label:d.label, value:d.value, color:d.color};});
-}
-
+	console.log(names[0]);
+	d3.select("svg").remove();
+		//////////////////////
+         var width = 1000 
+            scaleFactor = 20, 
+            barHeight = 30;
+         
+         var graph = d3.select(".timeline")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", barHeight * commits.length * 2);
+         
+         var bar = graph.selectAll("g")
+            .data(commits)
+            .enter()
+            .append("g")
+            .attr("transform", function(d, i) {
+               return "translate(0," + i * barHeight*2 + ")";
+            });
+         bar.append("rect").attr("width", function(d) {
+            return d * scaleFactor;
+         })
+         
+         .attr("height", barHeight - 1);
+         
+        bar.append("text")
+            .attr("x", function(d) { return (d*scaleFactor); })
+            .attr("y", barHeight / 2)
+            .attr("dy", ".35em")
+            .text(function(d) { return d; });
+		var i = 0;
+		bar.append("text")
+            .attr("y", (barHeight/2)+barHeight )
+			.data(names)
+			.text(function(d) { return d; });
 }
