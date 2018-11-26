@@ -33,7 +33,6 @@
 					vm.login=res.data.login;
 					vm.loading=false;					
 				})
-				}
 				vm.getRepos = function(user){
 					var repos = "https://api.github.com/users/" + input + "/repos";
 					consol.log(repos);
@@ -47,6 +46,7 @@
 					consol.log(returnData);
 					return returnData;
 				} 
+				}
 			})
 		
 	</script>	
