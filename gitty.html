@@ -41,7 +41,7 @@
 					var returnData = [];
 					var repoName;
 					for(var i=0;i<repos.length;i++){
-						commits_url = "https://api.github.com/repos/" + user.name+"/" + repos[i].name"/commits";
+						commits_url = "https://api.github.com/repos/" + user.name+"/" + repos[i].name+"/commits";
 						console.log(commits_url);
 						//commits = JSON.parse(commitsData);
 						//returnData.push({"repo_name":repos[i].name, "commits":commits.length});
