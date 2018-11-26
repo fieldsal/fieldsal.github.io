@@ -33,8 +33,8 @@
 					vm.login=res.data.login;
 					vm.loading=false;					
 				})
-				vm.getRepos = function(vm.login){
-					var repos = "https://api.github.com/users/" + vm.login + "/repos";
+				vm.getRepos = function(user){
+					var repos = "https://api.github.com/users/" + user.name + "/repos";
 					consol.log(repos);
 					var commits = [];
 					var returnData = [];
