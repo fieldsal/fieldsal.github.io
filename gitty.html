@@ -17,7 +17,6 @@
 			vm.fetchData = function(user){
 				vm.loading = true;
 				$http.get('https://api.github.com/users/' + user.name).then(function(res){
-				
 					vm.data=true;
 					vm.name=res.data.name;
 					vm.photo=res.data.avatar_url;
@@ -29,9 +28,7 @@
 					vm.email=res.data.email;
 					vm.id=res.data.id;
 					vm.login=res.data.login;
-					vm.loading=false;
-						
-					
+					vm.loading=false;					
 				})
 				}
 			})
