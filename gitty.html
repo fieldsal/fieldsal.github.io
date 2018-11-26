@@ -37,12 +37,21 @@
 					var repo_url = "https://api.github.com/users/" + user.name + "/repos";
 					var repos = jsonParse(repo_url);
 					console.log(repos);
-					var commits = [200];
+					var commits = [];
+					var commits_page1 = [];
+					var commits_page2 = [];
+					var commits_page3 = [];
 					var returnData = [];
 					var repoName;
 					for(var i=0;i<repos.length;i++){
-						commits_url = "https://api.github.com/repos/" + user.name+"/" + repos[i].name+"/commits?per_page=300";
-						commits = jsonParse(commits_url);
+						commits_url_page1 = "https://api.github.com/repos/" + user.name+"/" + repos[i].name+"/commits?per_page=100";
+						commits_url_page2 = "https://api.github.com/repos/" + user.name+"/" + repos[i].name+"/commits?page=2&per_page=100";
+						commits_url_page3 = "https://api.github.com/repos/" + user.name+"/" + repos[i].name+"/commits?page=3&per_page=100";
+						commits_page1 = jsonParse(commits_url_page1);
+						commits_page2 = jsonParse(commits_url_page2);
+						commits_page3 = jsonParse(commits_url_page3);
+						commits = commits_page1.concat(commits_page2);
+						commits = commits.concat(commits_page3);
 						console.log(commits);
 						returnData.push({"repo_name":repos[i].name, "commits":commits.length});
 					}
