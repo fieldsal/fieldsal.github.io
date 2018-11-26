@@ -44,8 +44,9 @@
 						commits_url = "https://api.github.com/repos/" + user.name+"/" + repos[i].name+"/commits";
 						commits = jsonParse(commits_url);
 						console.log(commits);
-						
+						returnData.push({"repo_name":repos[i].name, "commits":commits.length});
 					}
+					console.log(returnData);
 					return returnData;
 				} 
 				}
