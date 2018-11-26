@@ -14,6 +14,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
 	<script>
 		var app= angular.module('app', []);
+		var returnData = [];
 		app.controller('MainCtrl', function($http){
 			var vm = this;
 			vm.data=false;
@@ -41,7 +42,7 @@
 					var commits_page1 = [];
 					var commits_page2 = [];
 					var commits_page3 = [];
-					var returnData = [];
+					
 					var repoName;
 					for(var i=0;i<repos.length;i++){
 						commits_url_page1 = "https://api.github.com/repos/" + user.name+"/" + repos[i].name+"/commits?per_page=100";
@@ -56,10 +57,11 @@
 						returnData.push({"repo_name":repos[i].name, "commits":commits.length});
 					}
 					console.log(returnData);
-					graph.plot(returnData);
+					
 				} 
 				
 				}
+				graph.plot(returnData);
 			})
 		
 	</script>	
