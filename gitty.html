@@ -58,7 +58,10 @@
 					console.log(returnData);
 					return plot(returnData);
 				} 
-				function plot(data){
+				
+				}
+			})
+			function plot(data){
 					var names=[];
 					var	commits=[];
 					console.log(data[0].repo_name);
@@ -104,8 +107,6 @@
 							.data(names)
 							.text(function(d) { return d; });
 				}
-				}
-			})
 		
 	</script>	
 
