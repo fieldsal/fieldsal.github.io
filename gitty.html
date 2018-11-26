@@ -21,6 +21,7 @@
 					vm.data=true;
 					vm.name=res.data.name;
 					vm.photo=res.data.avatar_url;
+					vm.calendar =('http://ghchart.rshah.org/' + user.name);
 					vm.location=res.data.location;
 					vm.following=res.data.following;
 					vm.followers=res.data.followers;
@@ -56,10 +57,18 @@ div{
 	margin-left:26%;
 	margin-right:26%;
 }
-img{
+.avatar {
+
 	width:200px;
 	height:200px;
 	border-radius: 120px;
+	
+}
+.cal {
+
+	width:95%;
+	
+	
 }
 body {
 	
@@ -85,7 +94,9 @@ h3{
 	<button ng-click="vm.fetchData(user)">Go!</button>
 		<h4 ng-if="vm.loading ===true">Loading...</h4>
 	<h3 ng-hide="vm.data===false">Name:{{vm.name}}</h3>
-	<img ng-hide="vm.data===false" ng-src = {{vm.photo}}>
+	<img class = "avatar" ng-hide="vm.data===false" ng-src = {{vm.photo}}>
+	<br>
+	<img class = "cal" ng-hide="vm.data===false" ng-src = {{vm.calendar}}>
 	<h3 ng-hide="vm.data===false">Location:{{vm.location}}</h3>
 	<h3 ng-hide="vm.data===false">Following: {{vm.following}}</h3>
 	<h3 ng-hide="vm.data===false"> Followers: {{vm.followers}}</h3>
