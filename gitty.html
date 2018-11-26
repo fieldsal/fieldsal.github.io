@@ -35,7 +35,17 @@
 				})
 				}
 				vm.getRepos = function(user){
-					
+					var repos = "https://api.github.com/users/" + input + "/repos";
+					consol.log(repos);
+					var commits = [];
+					var returnData = [];
+					for(var i=0;i<repos.length;i++){
+						commitsData = repos[i].commits_url.substring(0,repos[i].commits_url.length-6);
+						commits = jsonParse(commitsData);
+						returnData.push({"repo_name":repos[i].name, "commits":commits.length});
+					}
+					consol.log(returnData);
+					return returnData;
 				} 
 			})
 		
