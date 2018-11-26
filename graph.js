@@ -29,7 +29,7 @@ function plot(data){
             scaleFactor = 20, 
             barHeight = 30;
          
-         var graph = d3.select(".timeline")
+         var graph = d3.select(".barchart")
             .append("svg")
             .attr("width", width)
             .attr("height", barHeight * commits.length * 2);
