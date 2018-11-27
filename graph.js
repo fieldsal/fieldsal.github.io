@@ -21,8 +21,8 @@ function plot(data){
 		name[i]= data[i].repo_name;
 		commits[i]= data[i].commits;
 	}
-	var width = 600;
-	var height = 600; 
+	var width = 500;
+	var height = 500; 
     		console.log(data);
          var svg = d3.select("svg"),
             width = svg.attr("width"),
