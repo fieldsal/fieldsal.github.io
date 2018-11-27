@@ -54,9 +54,6 @@ function plot(data){
                .enter()
                .append("g")
                .attr("class", "arc",arcAttrs)
-			   .on("mouseover", handleMouseOver)
-			   .on("mouseout", handleMouseOut);
-            
             arc.append("path")
                .attr("d", path)
                .attr("fill", function(d) { return color(d.data.repo_name); });
