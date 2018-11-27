@@ -56,10 +56,6 @@ function plot(data){
             arc.append("path")
                .attr("d", path)
                .attr("fill", function(d) { return color(d.data.repo_name); });
-        
-			arc.append("text").attr("transform", function(d.data.repo_name) { 
-               return "translate(" + label.centroid(d.data.repo_name) + ")"; 
-			})
 			   .text(function(d) { return d.data.repo_name; });
             console.log(arc)
 }
