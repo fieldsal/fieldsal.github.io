@@ -59,6 +59,8 @@ function plot(data){
         
 			arc.append("text").attr("transform", function(d.data.repo_name) { 
                return "translate(" + label.centroid(d.data.repo_name) + ")"; 
+			})
+			   .text(function(d) { return d.data.repo_name; });
             console.log(arc)
 }
 
