@@ -53,11 +53,12 @@ function plot(data){
                .data(pie(data))
                .enter()
                .append("g")
-               .attr("class", "arc",arcAttrs)
             arc.append("path")
                .attr("d", path)
                .attr("fill", function(d) { return color(d.data.repo_name); });
         
+			arc.append("text").attr("transform", function(d) { 
+               return "translate(" + label.centroid(d) + ")"; 
             console.log(arc)
 }
 
