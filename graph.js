@@ -56,7 +56,7 @@ function plot(data){
             arc.append("path")
                .attr("d", path)
                .attr("fill", function(d) { return color(d.data.repo_name); });
-			   .text(function(d) { return d.data.repo_name; });
+			 
             console.log(arc)
 }
 
