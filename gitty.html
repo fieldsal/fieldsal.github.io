@@ -7,10 +7,8 @@
 	<title>GitHub API-Crawler</title>
 	<link rel="stylesheet" href="">
 	<script src="d3.js"></script>
-	<script src="graph.js"></script>
 	<script src="jsonParse.js"></script>
-	<script src="https://d3js.org/d3.v5.min.js"></script>
-	<script src="https://d3js.org/d3.v3.min.js"></script>
+	<script src="graph.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
 	<script>
 		var app= angular.module('app', []);
@@ -56,11 +54,13 @@
 						returnData.push({"repo_name":repos[i].name, "commits":commits.length});
 					}
 					console.log(returnData);
-					graph.plot(returnData);
+					
+					plot(returnData);
+						
 				} 
 				
-				}
-			})
+			}
+		})
 		
 	</script>	
 
@@ -133,7 +133,9 @@ h3{
 	<br>
 	
 	<button  ng-hide="vm.data===false" ng-click= "vm.getRepos(user)">Repos</button>
-	<div class = "barchart">
+	<br>
+	<br>
+	<div class = "commitHist">
 	</div>
 
 </center>
