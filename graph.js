@@ -81,10 +81,7 @@ function plot(data){
          
          
         
-         svg.append("g")
-            .attr("transform", "translate(" + (width / 2 - 120) + "," + 20 + ")")
-            .append("text").text("Commits Pie")
-            .attr("class", "title")
+        
 }
 
 
