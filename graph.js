@@ -21,8 +21,8 @@ function plot(data){
 		name[i]= data[i].repo_name;
 		commits[i]= data[i].commits;
 	}
-	var width = 500;
-	var height = 500; 
+	var width = 300;
+	var height = 300; 
     		console.log(data);
          var svg = d3.select("svg"),
             width = svg.attr("width"),
@@ -53,6 +53,10 @@ function plot(data){
                .data(pie(data))
                .enter()
                .append("g")
+               .attr("class", "arc",arcAttrs)
+			   .on("mouseover", handleMouseOver)
+			   .on("mouseout", handleMouseOut);
+            
             arc.append("path")
                .attr("d", path)
                .attr("fill", function(d) { return color(d.data.repo_name); });
