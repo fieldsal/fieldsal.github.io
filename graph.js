@@ -95,7 +95,7 @@ function plot(data){
     
     legendG.append("text")
       .text(function(d){
-        return d.value + "  " + d.data.emote;
+        return d.data.repo_name;
       })
       .style("font-size", 12)
       .attr("y", 10)
