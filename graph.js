@@ -70,7 +70,7 @@ function plot(data){
 		 */
 		     arc.append("text")
       .attr("transform", function(d) {
-        return "translate(" + arc.centroid(d) + ")";
+        return "translate(" + label.centroid(d) + ")";
       })
       .attr("dy", ".35em")
       .style("text-anchor", "middle")
