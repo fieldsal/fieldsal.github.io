@@ -73,19 +73,19 @@ function plot(data){
 					 })
 					 .attr("class", "legend");   
     
-			  legendG.append("rect")
-					 .attr("width", 10)
-					 .attr("height", 10)
-					 .attr("fill", function(d) { return color(d.data.repo_name);
-					 });
+		legendG.append("rect")
+			   .attr("width", 10)
+			   .attr("height", 10)
+			   .attr("fill", function(d) { return color(d.data.repo_name);
+			   });
     
-			 legendG.append("text")
-					.text(function(d){
-					return d.data.repo_name;
-					})
-					.style("font-size", 12)
-					.attr("y", 10)
-					.attr("x", 11);
+		legendG.append("text")
+			   .text(function(d){
+				return d.data.repo_name;
+				})
+			   .style("font-size", 12)
+			   .attr("y", 10)
+			   .attr("x", 11);
 }
 
 
