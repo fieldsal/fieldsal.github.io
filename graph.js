@@ -54,13 +54,16 @@ function plot(data){
                .enter()
                .append("g")
                .attr("class", "arc",arcAttrs)
-			   .on("mouseover", handleMouseOver)
-			   .on("mouseout", handleMouseOut);
             
             arc.append("path")
                .attr("d", path)
                .attr("fill", function(d) { return color(d.data.repo_name); });
-			 
+			
+            arc(function() {
+              return [d.repo_name[i]];  // Value of the text
+            });
+          
+
             console.log(arc)
 }
 
