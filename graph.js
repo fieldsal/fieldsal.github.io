@@ -1,6 +1,5 @@
 function getRepos(input){
 	var repos = "https://api.github.com/users/" + input + "/repos";
-	consol.log(repos);
 	var commits = [];
 	var returnData = [];
 	for(var i=0;i<repos.length;i++){
@@ -8,14 +7,12 @@ function getRepos(input){
 		commits = jsonParse(commitsData);
 		returnData.push({"repo_name":repos[i].name, "commits":commits.length});
 	}
-	consol.log(returnData);
 	return returnData;
 }
 
 function plot(data){
 	var name=[];
 	var	commits=[];
-	console.log(data[0].repo_name);
 	for(var i = 0 ; i<data.length ; i ++)
 	{
 		name[i]= data[i].repo_name;
@@ -23,7 +20,6 @@ function plot(data){
 	}
 	var width = 300;
 	var height = 300; 
-    console.log(data);
     var svg = d3.select("svg"),
         width = svg.attr("width"),
         height = svg.attr("height"),
@@ -63,7 +59,7 @@ function plot(data){
 				.style("text-anchor", "middle")
 				.attr("fill", "#fff")
 				.text(function(d, i) {
-					return d.data.count > 0 ? d.data.emote : '';
+					return d.data.count > 0 ? d.data.repo_name : '';
 				});
     var legendG = svg.selectAll(".legend")
 					 .data(pie(data))
