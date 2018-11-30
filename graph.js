@@ -80,7 +80,7 @@ function plot(data){
       });
     
     var legendG = svg.selectAll(".legend")
-      .data(pie(d.data.repo_name))
+      .data(pie(data))
       .enter().append("g")
       .attr("transform", function(d,i){
         return "translate(" + (width - 110) + "," + (i * 15 + 20) + ")";
