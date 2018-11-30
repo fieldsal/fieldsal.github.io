@@ -54,17 +54,11 @@
 						returnData.push({"repo_name":repos[i].name, "commits":commits.length});
 					}
 					console.log(returnData);
-					
-					plot(returnData);
-						
-				} 
-				
+					plot(returnData);	
+				} 	
 			}
 		})
-		
 	</script>	
-
-
 </head>
 
 <style>
@@ -120,49 +114,44 @@ svg {
 }
 </style>
 
-
 <body  ng-controller='MainCtrl as vm'>
-<div>
-<center>
-	<label for = "enter">Enter a username</label>
-	<input type="text" ng-model="user.name" name="enter">
-	<button ng-click="vm.fetchData(user)">Go!</button>
-		<h4 ng-if="vm.loading ===true">Loading...</h4>
-	<h3 ng-hide="vm.data===false">Name:{{vm.name}}</h3>
-	<img class = "avatar" ng-hide="vm.data===false" ng-src = {{vm.photo}}>
-	<br>
-	<img class = "cal" ng-hide="vm.data===false" ng-src = {{vm.calendar}}>
-	<h3 ng-hide="vm.data===false">Location:{{vm.location}}</h3>
-	<h3 ng-hide="vm.data===false">Following: {{vm.following}}</h3>
-	<h3 ng-hide="vm.data===false"> Followers: {{vm.followers}}</h3>
-	<h3 ng-hide="vm.data===false"> Public Repos: {{vm.public_repos}}</h3>
-	<h3 ng-hide="vm.data===false"> Email: {{vm.email}}</h3>
-	<h3 ng-hide="vm.data===false"> Id: {{vm.id}}</h3>
-	<h3 ng-hide="vm.data===false"> Login: {{vm.login}}</h3>
-	<br>
+	<div>
+		<center>
+			<label for = "enter">Enter a username</label>
+			<input type="text" ng-model="user.name" name="enter">
+			<button ng-click="vm.fetchData(user)">Go!</button>
+				<h4 ng-if="vm.loading ===true">Loading...</h4>
+				<h3 ng-hide="vm.data===false">Name:{{vm.name}}</h3>
+				<img class = "avatar" ng-hide="vm.data===false" ng-src = {{vm.photo}}>
+				<br>
+				<img class = "cal" ng-hide="vm.data===false" ng-src = {{vm.calendar}}>
+				<h3 ng-hide="vm.data===false">Location:{{vm.location}}</h3>
+				<h3 ng-hide="vm.data===false">Following: {{vm.following}}</h3>
+				<h3 ng-hide="vm.data===false"> Followers: {{vm.followers}}</h3>
+				<h3 ng-hide="vm.data===false"> Public Repos: {{vm.public_repos}}</h3>
+				<h3 ng-hide="vm.data===false"> Email: {{vm.email}}</h3>
+				<h3 ng-hide="vm.data===false"> Id: {{vm.id}}</h3>
+				<h3 ng-hide="vm.data===false"> Login: {{vm.login}}</h3>
+				<br>
+				<button  ng-hide="vm.data===false" ng-click= "vm.getRepos(user)">Repos</button>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+			<div class = "arc">
+				<div id = arc></div>
+					<svg width = "300" , height = "300"></svg>
+					<br>
+					<br>
+					<br>
+			</div>
+			<div class = "legendG">
+				<div id = legendG></div>
+			</div>
 	
-	<button  ng-hide="vm.data===false" ng-click= "vm.getRepos(user)">Repos</button>
-	<br>
-	<br><br>
-	<br><br>
-	<div class = "arc">
-	
-	<div id = arc></div>
-	<center>
-	<svg width = "300" , height = "300"></svg>
-	<br>
-	<br>
-	<br>
-	
-	<div class = "legendG">
-	<div id = legendG></div>
+		</center>
 	</div>
-	</center>
-	
-	</div>
-</center>
-</div>
 </body>
-
 
 </html>
