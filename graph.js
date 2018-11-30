@@ -59,9 +59,9 @@ function plot(data){
                .attr("d", path)
                .attr("fill", function(d) { return color(d.data.repo_name); });
 			
-            arc(function() {
-              return [d.repo_name[i]];  // Value of the text
-            });
+           arc.append("text").attr("transform",function(d){
+		   return "translate("+label.centroid(d)+")";})
+			   .text(function(d){return d.data.repo_name;});
           
 
             console.log(arc)
