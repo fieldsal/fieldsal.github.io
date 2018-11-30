@@ -32,7 +32,7 @@ function plot(data){
          var g = svg.append("g")
             .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 			svg.append("g")
-				.attr("class", "labels");
+				.attr("class", "ledgend");
 			svg.append("g")
 				.attr("class", "lines");
 		 var key = function(d){ return d.data.repo_name; };
@@ -63,11 +63,45 @@ function plot(data){
                .attr("d", path)
                .attr("fill", function(d) { return color(d.data.repo_name); });
 		
-           arc.append("text").attr("transform",function(d){
+           /*arc.append("text").attr("transform",function(d){
 		   return "translate("+label.centroid(d)+")";})
 			   .text(function(d){return d.data.repo_name;});
          
-		 
+		 */
+		     textG.append("text")
+      .attr("transform", function(d) {
+        return "translate(" + arc.centroid(d) + ")";
+      })
+      .attr("dy", ".35em")
+      .style("text-anchor", "middle")
+      .attr("fill", "#fff")
+      .text(function(d, i) {
+        return d.data.count > 0 ? d.data.emote : '';
+      });
+    
+    var legendG = mySvg.selectAll(".legend")
+      .data(pie(newData))
+      .enter().append("g")
+      .attr("transform", function(d,i){
+        return "translate(" + (width - 110) + "," + (i * 15 + 20) + ")";
+      })
+      .attr("class", "legend");   
+    
+    legendG.append("rect")
+      .attr("width", 10)
+      .attr("height", 10)
+      .attr("fill", function(d, i) {
+        return colour(i);
+      });
+    
+    legendG.append("text")
+      .text(function(d){
+        return d.value + "  " + d.data.emote;
+      })
+      .style("font-size", 12)
+      .attr("y", 10)
+      .attr("x", 11);
+    
 	
 
             console.log(arc)
