@@ -90,8 +90,8 @@ function plot(data){
     legendG.append("rect")
       .attr("width", 10)
       .attr("height", 10)
-      .attr("fill", function(d, i) {
-        return colour(i);
+      .attr("fill", function(d, d.data.repo_name) {
+        return colour(d.data.repo_name);
       });
     
     legendG.append("text")
