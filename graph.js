@@ -62,71 +62,13 @@ function plot(data){
             arc.append("path")
                .attr("d", path)
                .attr("fill", function(d) { return color(d.data.repo_name); });
-		/*	
+		
            arc.append("text").attr("transform",function(d){
 		   return "translate("+label.centroid(d)+")";})
 			   .text(function(d){return d.data.repo_name;});
-         */
+         
 		 
-	var text = svg.select(".labels").selectAll("text")
-		.data(pie(data), key);
-
-	text.enter()
-		.append("text")
-		.attr("dy", ".35em")
-		.text(function(d) {
-			return d.data.repo_name;
-		});
 	
-	function midAngle(d){
-		return d.startAngle + (d.endAngle - d.startAngle)/2;
-	}
-
-	text.transition().duration(1000)
-		.attrTween("transform", function(d) {
-			this._current = this._current || d;
-			var interpolate = d3.interpolate(this._current, d);
-			this._current = interpolate(0);
-			return function(t) {
-				var d2 = interpolate(t);
-				var pos = outerArc.centroid(d2);
-				pos[0] = radius * (midAngle(d2) < Math.PI ? 1 : -1);
-				return "translate("+ pos +")";
-			};
-		})
-		.styleTween("text-anchor", function(d){
-			this._current = this._current || d;
-			var interpolate = d3.interpolate(this._current, d);
-			this._current = interpolate(0);
-			return function(t) {
-				var d2 = interpolate(t);
-				return midAngle(d2) < Math.PI ? "start":"end";
-			};
-		});
-
-	text.exit()
-		.remove();
-		var polyline = svg.select(".lines").selectAll("polyline")
-		.data(pie(data), key);
-	
-	polyline.enter()
-		.append("polyline");
-
-	polyline.transition().duration(1000)
-		.attrTween("points", function(d){
-			this._current = this._current || d;
-			var interpolate = d3.interpolate(this._current, d);
-			this._current = interpolate(0);
-			return function(t) {
-				var d2 = interpolate(t);
-				var pos = outerArc.centroid(d2);
-				pos[0] = radius * 0.95 * (midAngle(d2) < Math.PI ? 1 : -1);
-				return [arc.centroid(d2), outerArc.centroid(d2), pos];
-			};			
-		});
-	
-	polyline.exit()
-	.remove();
 
             console.log(arc)
 }
