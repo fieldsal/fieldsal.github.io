@@ -61,9 +61,9 @@ function plot(data){
 				.text(function(d, i) {
 					return d.data.count > 0 ? d.data.repo_name : '';
 				});
-	 var myDiv = document.getElementById("legend");
-	myDiv.innerHTML = {
-    var legendG = svg.selectAll(".legend")
+	var myDiv = document.getElementById("legend");
+		myDiv.innerHTML = {
+		var legendG = svg.selectAll(".legend")
 					 .data(pie(data))
 					 .enter().append("g")
 					 .attr("transform", function(d,i){
@@ -84,7 +84,7 @@ function plot(data){
 			   .style("font-size", 12)
 			   .attr("y", 10)
 			   .attr("x", 11);
-};
+		};
 }
 
 
