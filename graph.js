@@ -79,8 +79,8 @@ function plot(data){
         return d.data.count > 0 ? d.data.emote : '';
       });
     
-    var legendG = mySvg.selectAll(".legend")
-      .data(pie(newData))
+    var legendG = svg.selectAll(".legend")
+      .data(pie(d.data.repo_name))
       .enter().append("g")
       .attr("transform", function(d,i){
         return "translate(" + (width - 110) + "," + (i * 15 + 20) + ")";
