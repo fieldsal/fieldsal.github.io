@@ -69,7 +69,7 @@ function plot(data){
          */
 		 
 	var text = svg.select(".labels").selectAll("text")
-		.data(pie(data), key);
+		.data(pie(data), repo_name);
 
 	text.enter()
 		.append("text")
@@ -107,7 +107,7 @@ function plot(data){
 	text.exit()
 		.remove();
 		var polyline = svg.select(".lines").selectAll("polyline")
-		.data(pie(data), key);
+		.data(pie(data), repo_name);
 	
 	polyline.enter()
 		.append("polyline");
