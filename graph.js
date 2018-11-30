@@ -66,7 +66,7 @@ function plot(data){
 					 .data(pie(data))
 					 .enter().append("g")
 					 .attr("transform", function(d,i){
-						return "translate(" + (width - 110) + "," + (i * 15 + 20) + ")";
+						return "translate(" + (width - 50) + "," + (i * 15 + 20) + ")";
 					 })
 					 .attr("class", "legend");   
     
