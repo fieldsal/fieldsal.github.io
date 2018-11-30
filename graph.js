@@ -35,7 +35,7 @@ function plot(data){
 				.attr("class", "labels");
 			svg.append("g")
 				.attr("class", "lines");
-
+		 var key = function(d){ return d.data.label; };
          var color = d3.scaleOrdinal(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
          
          var pie = d3.pie().value(function(d) { 
@@ -69,7 +69,7 @@ function plot(data){
          */
 		 
 	var text = svg.select(".labels").selectAll("text")
-		.data(pie(data), d.data.repo_name);
+		.data(pie(data), key);
 
 	text.enter()
 		.append("text")
@@ -107,7 +107,7 @@ function plot(data){
 	text.exit()
 		.remove();
 		var polyline = svg.select(".lines").selectAll("polyline")
-		.data(pie(data), d.data.repo_name);
+		.data(pie(data), key);
 	
 	polyline.enter()
 		.append("polyline");
