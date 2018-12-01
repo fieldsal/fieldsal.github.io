@@ -53,21 +53,22 @@
 						
 					}
 					plot(returnData);	
-				} 
-				vm.getFollower = fucntion(user){
-				var returnData = [];
-				var follow_avatar = [];
-				var follow_login = [];
-				var followers_url = "https://api.github.com/users/" + user.name + "/followers";
-				var followers = jsonParse(followers_url);
-				for(var i=0;i<followers.length;i++){
+					vm.getFollower = fucntion(user){
+					var returnData = [];
+					var follow_avatar = [];
+					var follow_login = [];
+					var followers_url = "https://api.github.com/users/" + user.name + "/followers";
+					var followers = jsonParse(followers_url);
+					for(var i=0;i<followers.length;i++){
 						follow = "https://api.github.com/repos/" + user.name+"/" + followers[i].name;
 						follow_avatar ="https://api.github.com/users/" +follow.avatar_url;
 						follow_login ="https://api.github.com/users/" +follow.login;
 						returnData.push({"avatar_follow":follow_avatar[i], "login_follow":follow_login[i]});		
+					}
+					drawFollowers(returnData);
 				}
-				drawFollowers(returnData);
-			}
+				} 
+				
 		})
 	</script>	
 </head>
