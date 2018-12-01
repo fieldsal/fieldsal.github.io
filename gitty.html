@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<link rel="icon" href="Images/favicon.gif" type="image/gif">
 	<title>GitHub API-Crawler</title>
-	<link rel="stylesheet" href="">
+	<link rel="stylesheet" href="style.css">
 	<script src="d3.js"></script>
 	<script src="jsonParse.js"></script>
 	<script src="graph.js"></script>
@@ -34,7 +34,6 @@
 				vm.getRepos = function(user){
 					var repo_url = "https://api.github.com/users/" + user.name + "/repos";
 					var repos = jsonParse(repo_url);
-					console.log(repos);
 					var commits = [];
 					var commits_page1 = [];
 					var commits_page2 = [];
@@ -50,60 +49,28 @@
 						commits_page3 = jsonParse(commits_url_page3);
 						commits = commits_page1.concat(commits_page2);
 						commits = commits.concat(commits_page3);
-						console.log(commits);
 						returnData.push({"repo_name":repos[i].name, "commits":commits.length});
+						
 					}
-					console.log(returnData);
 					plot(returnData);	
-				} 	
+				} 
+				vm.getFollower = fucntion(user){
+				var returnData = [];
+				var follow_avatar = [];
+				var follow_login = [];
+				var followers_url = "https://api.github.com/users/" + user.name + "/followers";
+				var followers = jsonParse(followers_url);
+				for(var i=0;i<followers.length;i++){
+						follow = "https://api.github.com/repos/" + user.name+"/" + followers[i].name;
+						follow_avatar ="https://api.github.com/users/" +follow.avatar_url;
+						follow_login ="https://api.github.com/users/" +follow.login;
+						returnData.push({"avatar_follow":follow_avatar[i], "login_follow":follow_login[i]});		
+				}
+				drawFollowers(returnData);
 			}
 		})
 	</script>	
 </head>
-
-<style>
-
-.link {
-  stroke: #ccc;
-}
-
-.node text {
-  pointer-events: none;
-  font: 12px sans-serif;
-}
-
-div{
-	background-color : white;
-	margin-left:26%;
-	margin-right:26%;
-}
-.avatar {
-	width:200px;
-	height:200px;
-	border-radius: 120px;
-}
-.cal {
-	width:95%;
-}
-body {
-    background-image: url("Images/back.png");
-}
-h4{
-	font-family:"Courier New", Courier, monospace;	
-}
-h3{
-	font-family:"Courier New", Courier, monospace;
-}
-svg {
-    font-family: "Helvetica Neue", Helvetica;
-}
-.line {
-    fill: none;
-    stroke: #000;
-    stroke-width: 2px;
-}
-</style>
-
 <body  ng-controller='MainCtrl as vm'>
 	<div>
 		<center>
@@ -132,12 +99,8 @@ svg {
 			<div class = "arc">
 				<div id = arc></div>
 					<svg width = "300" , height = "300"></svg>
-					<br>
-					<br>
-					<br>
 			</div>
 			<div class = "legend">
-				
 			</div>
 			<br>
 			<br>
@@ -145,6 +108,7 @@ svg {
 			<br>
 			<br>
 			<br>
+			
 		</center>
 	</div>
 </body>

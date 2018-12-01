@@ -1,0 +1,39 @@
+.link {
+  stroke: #ccc;
+}
+
+.node text {
+  pointer-events: none;
+  font: 12px sans-serif;
+}
+
+div{
+	background-color : white;
+	margin-left:26%;
+	margin-right:26%;
+}
+.avatar {
+	width:200px;
+	height:200px;
+	border-radius: 120px;
+}
+.cal {
+	width:95%;
+}
+body {
+    background-image: url("Images/back.png");
+}
+h4{
+	font-family:"Courier New", Courier, monospace;	
+}
+h3{
+	font-family:"Courier New", Courier, monospace;
+}
+svg {
+    font-family: "Helvetica Neue", Helvetica;
+}
+.line {
+    fill: none;
+    stroke: #000;
+    stroke-width: 2px;
+}
