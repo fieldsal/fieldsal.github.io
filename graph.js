@@ -86,8 +86,8 @@ function plot(data){
 		
 }
 function drawFollowers(data){
-	return ("<img class = "avatar" src='" + data.follow_avatar[i] + "' />"+"<br>"+
-				"<h3>"+data.follow_login[i]+"</h3>";);
+	return "<img class = "avatar" src='" + data.follow_avatar[i] + "' />"+"<br>"+
+				"<h3>"+data.follow_login[i]+"</h3>";
 	
 }
 
