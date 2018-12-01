@@ -3,7 +3,7 @@
 Web app to access the GitHub Api, and display info graphically, using the d3 library
 
 ```
-Access using "https://fieldsal.github.io/gitty.html"
+Access using https://fieldsal.github.io/gitty.html
 ```
 ## On Load
 ![onload](https://github.com/fieldsal/fieldsal.github.io/blob/master/Images/GitHub/1.png)
