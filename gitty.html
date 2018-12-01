@@ -53,7 +53,9 @@
 						
 					}
 					plot(returnData);	
-					vm.getFollower = fucntion(user){
+					
+				}
+				vm.getFollowers = function(user){
 					var returnData = [];
 					var follow_avatar = [];
 					var follow_login = [];
@@ -67,7 +69,6 @@
 					}
 					drawFollowers(returnData);
 				}
-				} 
 				
 		})
 	</script>	
