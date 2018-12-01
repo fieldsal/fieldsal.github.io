@@ -66,13 +66,13 @@ function plot(data){
 					 .data(pie(data))
 					 .enter().append("g")
 					 .attr("transform", function(d,i){
-						return "translate(" + (width - 310) + "," + (i * 15 + 20) + ")";
+						return "translate(" + (width - 300) + "," + (i * 15 + 20) + ")";
 					 })
 					 .attr("class", "legend");   
     
 		legendG.append("rect")
 			   .attr("width", 10)
-			   .attr("height", 10)
+			   .attr("height", 300)
 			   .attr("fill", function(d) { return color(d.data.repo_name);
 			   });
     
