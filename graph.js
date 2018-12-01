@@ -78,7 +78,7 @@ function plot(data){
     
 		legendG.append("text")
 			   .text(function(d){
-				return d.data.repo_name;
+				return d.data.repo_name + "=" + d.data.commits;
 				})
 			   .style("font-size", 12)
 			   .attr("y", 10)
