@@ -18,8 +18,8 @@ function plot(data){
 		name[i]= data[i].repo_name;
 		commits[i]= data[i].commits;
 	}
-	var width = 275;
-	var height = 275; 
+	var width = 300;
+	var height = 300; 
     var svg = d3.select("svg"),
         width = svg.attr("width"),
         height = svg.attr("height"),
@@ -86,17 +86,6 @@ function plot(data){
 		
 }
 
-function drawFollowers() {
-    var div = document.createElement('div');
-
-    div.className = 'row';
-
-    div.innerHTML =
-        "<img class = 'avatar' src='" + data.follow_avatar[i] + "' />"+"<br>"+
-				"<h3>"+data.follow_login[i]+"</h3>";
-
-    document.getElementById('content').appendChild(div);
-}
 
 
 
