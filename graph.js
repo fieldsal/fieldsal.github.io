@@ -85,11 +85,18 @@ function plot(data){
 			   .attr("x", 11);
 		
 }
-function drawFollowers(data){
-	
-	return "<img class = 'avatar' src='" + data.follow_avatar[i] + "' />"+"<br>"+
+
+function drawFollowers() {
+    var div = document.createElement('div');
+
+    div.className = 'row';
+
+    div.innerHTML =
+        "<img class = 'avatar' src='" + data.follow_avatar[i] + "' />"+"<br>"+
 				"<h3>"+data.follow_login[i]+"</h3>";
-	
+
+    document.getElementById('content').appendChild(div);
 }
+
 
 
