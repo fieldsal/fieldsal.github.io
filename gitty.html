@@ -64,7 +64,9 @@
 					for(var i=0;i<followers.length;i++){
 						follow = "https://api.github.com/repos/" + user.name+"/" + followers[i].name;
 						follow_avatar ="https://api.github.com/users/" +follow.avatar_url;
+						console.log(follow_avatar);
 						follow_login ="https://api.github.com/users/" +follow.login;
+						console.log(follow_login);
 						returnData.push({"avatar_follow":follow_avatar[i], "login_follow":follow_login[i]});
 						drawFollowers(returnData);						
 					}
