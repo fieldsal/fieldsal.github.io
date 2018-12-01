@@ -72,7 +72,7 @@ function plot(data){
     
 		legendG.append("rect")
 			   .attr("width", 10)
-			   .attr("height", 300)
+			   .attr("height", 10)
 			   .attr("fill", function(d) { return color(d.data.repo_name);
 			   });
     
